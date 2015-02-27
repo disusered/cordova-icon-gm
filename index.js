@@ -232,7 +232,8 @@ var configFileExists = function () {
 
 display.header('Checking Project & Icon');
 
-atLeastOnePlatformFound()
+var run = function() {
+  return atLeastOnePlatformFound()
     .then(validIconExists)
     .then(configFileExists)
     .then(getProjectName)
@@ -245,3 +246,8 @@ atLeastOnePlatformFound()
     }).then(function () {
         console.log('');
     });
+};
+
+module.exports = {
+  generate: run
+};
