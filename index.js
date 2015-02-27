@@ -113,8 +113,7 @@ var getProjectName = function () {
  */
 var generateIcon = function (platform, icon) {
     var deferred = Q.defer();
-    var file = platform.iconsPaths + icon.name;
-    var max;
+    var file = platform.iconsPath + icon.name;
 
     gm(settings.ICON_FILE)
       .resize(icon.size, icon.size)
