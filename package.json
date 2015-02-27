@@ -1,6 +1,6 @@
 {
   "name": "cordova-icon-gm",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Automatic icon resizing for Cordova",
   "main": "index.js",
   "preferGlobal": "true",
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:cordova-bridge/icon.git"
+    "url": "git@github.com:disusered/cordova-icon-gm.git"
   },
   "keywords": [
     "cordova",
@@ -24,9 +24,9 @@
   "author": "Carlos Antonio",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/cordova-bridge/icon/issues"
+    "url": "https://github.com/disusered/cordova-icon-gm/issues"
   },
-  "homepage": "https://github.com/cordova-bridge/icon",
+  "homepage": "https://github.com/disusered/cordova-icon-gm",
   "dependencies": {
     "colors": "^0.6.2",
     "gm": "^1.17.0",
