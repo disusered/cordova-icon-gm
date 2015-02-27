@@ -46,8 +46,7 @@ var getPlatforms = function (projectName) {
             { name : 'drawable-hdpi/icon.png',  size : 72 },
             { name : 'drawable-ldpi/icon.png',  size : 36 },
             { name : 'drawable-mdpi/icon.png',  size : 48 },
-            { name : 'drawable-xhdpi/icon.png', size : 96 },
-            { name : 'drawable-xxhdpi/icon.png', size : 144 },
+            { name : 'drawable-xhdpi/icon.png', size : 96 }
         ]
     });
     // TODO: add all platforms
