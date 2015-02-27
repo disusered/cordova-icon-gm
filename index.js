@@ -1,6 +1,6 @@
 var fs     = require('fs');
 var xml2js = require('xml2js');
-var ig     = require('imagemagick');
+var gm     = require('gm');
 var colors = require('colors');
 var _      = require('underscore');
 var Q      = require('q');
@@ -114,21 +114,19 @@ var getProjectName = function () {
  */
 var generateIcon = function (platform, icon) {
     var deferred = Q.defer();
-    ig.resize({
-        srcPath: settings.ICON_FILE,
-        dstPath: platform.iconsPath + icon.name,
-        quality: 1,
-        format: 'png',
-        width: icon.size,
-        height: icon.size,
-    } , function(err, stdout, stderr){
+    var file = platform.iconsPaths + icon.name;
+    var max;
+
+    gm(settings.ICON_FILE)
+      .resize(icon.size, icon.size)
+      .write(file, function(err) {
         if (err) {
-            deferred.reject(err);
+          deferred.reject(err);
         } else {
-            deferred.resolve();
-            display.success(icon.name + ' created');
+          deferred.resolve();
+          display.success(icon.name + ' created');
         }
-    });
+      });
     return deferred.promise;
 };
 
