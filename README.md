@@ -35,9 +35,7 @@ Automatic icon resizing for Cordova. Add `icon.png` to the root folder of your C
 That's it. Now every time you `cordova add platform`, the icons will be auto generated.
 
 ### Requirements
-
 - GraphicsMagick
-
 - At least one platform was added to your project
 - Cordova's config.xml file must exist in the root folder
 
