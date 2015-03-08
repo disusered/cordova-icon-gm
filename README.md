@@ -13,17 +13,9 @@ Automatic icon resizing for Cordova. Add `icon.png` to the root folder of your C
 2. Create `my-icon-hook.js`
     ```javascript
     var icon = require('cordova-icon-gm');
-
-    module.exports = function(context) {
-      var Q   = context.requireCordovaModule('q');
-      var dfd = new Q.defer();
-
-      icon.generate().then(function() {
-        dfd.resolve();
-        console.log('Icons finished generating');
-      });
-
-      return dfd.promise;
+    
+    module.exports = function() {
+      return icon.generate();
     };
     ```
 
