@@ -5,7 +5,7 @@ Automatic icon resizing for Cordova. Add `icon.png` to the root folder of your C
 ### Manual usage
 1. `npm install -g cordova-icon-gm`
 2. Place `icon.png` to the root folder of your Cordova project
-3. Run `cordova-icon-gm`.
+3. Run `cordova-icon`.
 
 ### Automated usage
 1. `npm install cordova-icon-gm --save-dev`
