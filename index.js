@@ -16,7 +16,6 @@ var getPlatforms = function (projectName) {
     var platforms = [];
     platforms.push({
         name : 'ios',
-        // TODO: use async fs.exists
         isAdded : fs.existsSync('platforms/ios'),
         iconsPath : 'platforms/ios/' + projectName + '/Resources/icons/',
         icons : [
@@ -39,7 +38,6 @@ var getPlatforms = function (projectName) {
     });
     platforms.push({
         name : 'osx',
-        // TODO: use async fs.exists
         isAdded : fs.existsSync('platforms/osx'),
         iconsPath : 'platforms/osx/' + projectName + '/Images.xcassets/AppIcon.appiconset/',
         icons : [
@@ -65,7 +63,7 @@ var getPlatforms = function (projectName) {
             { name : 'mipmap-xxxhdpi/icon.png', size : 192 }
         ]
     });
-    // TODO: add all platforms
+    // TODO: add more platforms
     deferred.resolve(platforms);
     return deferred.promise;
 };
@@ -168,7 +166,7 @@ var generateIconsForPlatform = function (platform) {
 
 /**
  * Goes over all the platforms and triggers icon generation
- * 
+ *
  * @param  {Array} platforms
  * @return {Promise}
  */
