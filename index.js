@@ -16,7 +16,6 @@ var getPlatforms = function (projectName) {
     var platforms = [];
     platforms.push({
         name : 'ios',
-        // TODO: use async fs.exists
         isAdded : fs.existsSync('platforms/ios'),
         iconsPath : 'platforms/ios/' + projectName + '/Resources/icons/',
         icons : [
@@ -38,18 +37,33 @@ var getPlatforms = function (projectName) {
         ]
     });
     platforms.push({
+        name : 'osx',
+        isAdded : fs.existsSync('platforms/osx'),
+        iconsPath : 'platforms/osx/' + projectName + '/Images.xcassets/AppIcon.appiconset/',
+        icons : [
+            { name : 'icon-128x128.png',  size : 128 },
+            { name : 'icon-16x16.png',    size : 16 },
+            { name : 'icon-256x256.png',  size : 256 },
+            { name : 'icon-32x32.png',    size : 32 },
+            { name : 'icon-512x512.png',  size : 512  },
+            { name : 'icon-64x64.png',    size : 64 }
+        ]
+    });
+    platforms.push({
         name : 'android',
         iconsPath : 'platforms/android/res/',
         isAdded : fs.existsSync('platforms/android'),
         icons : [
             { name : 'drawable/icon.png',       size : 96 },
-            { name : 'drawable-hdpi/icon.png',  size : 72 },
-            { name : 'drawable-ldpi/icon.png',  size : 36 },
-            { name : 'drawable-mdpi/icon.png',  size : 48 },
-            { name : 'drawable-xhdpi/icon.png', size : 96 }
+            { name : 'mipmap-hdpi/icon.png',  size : 72 },
+            { name : 'mipmap-ldpi/icon.png',  size : 36 },
+            { name : 'mipmap-mdpi/icon.png',  size : 48 },
+            { name : 'mipmap-xhdpi/icon.png', size : 96 },
+            { name : 'mipmap-xxhdpi/icon.png', size : 144 },
+            { name : 'mipmap-xxxhdpi/icon.png', size : 192 }
         ]
     });
-    // TODO: add all platforms
+    // TODO: add more platforms
     deferred.resolve(platforms);
     return deferred.promise;
 };
@@ -152,7 +166,7 @@ var generateIconsForPlatform = function (platform) {
 
 /**
  * Goes over all the platforms and triggers icon generation
- * 
+ *
  * @param  {Array} platforms
  * @return {Promise}
  */
