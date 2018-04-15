@@ -1,9 +1,9 @@
-var fs     = require('fs');
-var xml2js = require('xml2js');
-var gm     = require('gm');
-var colors = require('colors');
-var _      = require('underscore');
-var Q      = require('q');
+var fs     = require('fs'),
+    xml2js = require('xml2js'),
+    gm     = require('gm'),
+    colors = require('colors'),
+    _      = require('underscore'),
+    Q      = require('q');
 
 /**
  * Check which platforms are added to the project and return their icon names and sized
@@ -17,23 +17,36 @@ var getPlatforms = function (projectName) {
     platforms.push({
         name : 'ios',
         isAdded : fs.existsSync('platforms/ios'),
-        iconsPath : 'platforms/ios/' + projectName + '/Resources/icons/',
+        iconsPath : 'platforms/ios/' + projectName + '/Images.xcassets/AppIcon.appiconset/',
         icons : [
-            { name : 'icon-40.png',       size : 40  },
-            { name : 'icon-40@2x.png',    size : 80  },
-            { name : 'icon-50.png',       size : 50  },
-            { name : 'icon-50@2x.png',    size : 100 },
-            { name : 'icon-60.png',       size : 60  },
-            { name : 'icon-60@2x.png',    size : 120 },
-            { name : 'icon-60@3x.png',    size : 180 },
-            { name : 'icon-72.png',       size : 72  },
-            { name : 'icon-72@2x.png',    size : 144 },
-            { name : 'icon-76.png',       size : 76  },
-            { name : 'icon-76@2x.png',    size : 152 },
-            { name : 'icon-small.png',    size : 29  },
-            { name : 'icon-small@2x.png', size : 58  },
-            { name : 'icon.png',          size : 57  },
-            { name : 'icon@2x.png',       size : 114 },
+            { name: 'icon-20.png',             size : 20   },
+            { name: 'icon-20@2x.png',          size : 40   },
+            { name: 'icon-20@3x.png',          size : 60   },
+            { name: 'icon-40.png',             size : 40   },
+            { name: 'icon-40@2x.png',          size : 80   },
+            { name: 'icon-50.png',             size : 50   },
+            { name: 'icon-50@2x.png',          size : 100  },
+            { name: 'icon-60@2x.png',          size : 120  },
+            { name: 'icon-60@3x.png',          size : 180  },
+            { name: 'icon-72.png',             size : 72   },
+            { name: 'icon-72@2x.png',          size : 144  },
+            { name: 'icon-76.png',             size : 76   },
+            { name: 'icon-76@2x.png',          size : 152  },
+            { name: 'icon-83.5@2x.png',        size : 167  },
+            { name: 'icon-1024.png',           size : 1024 },
+            { name: 'icon-small.png',          size : 29   },
+            { name: 'icon-small@2x.png',       size : 58   },
+            { name: 'icon-small@3x.png',       size : 87   },
+            { name: 'icon.png',                size : 57   },
+            { name: 'icon@2x.png',             size : 114  },
+            { name: 'AppIcon24x24@2x.png',     size : 48   },
+            { name: 'AppIcon27.5x27.5@2x.png', size : 55   },
+            { name: 'AppIcon29x29@2x.png',     size : 58   },
+            { name: 'AppIcon29x29@3x.png',     size : 87   },
+            { name: 'AppIcon40x40@2x.png',     size : 80   },
+            { name: 'AppIcon44x44@2x.png',     size : 88   },
+            { name: 'AppIcon86x86@2x.png',     size : 172  },
+            { name: 'AppIcon98x98@2x.png',     size : 196  }
         ]
     });
     platforms.push({
@@ -41,12 +54,12 @@ var getPlatforms = function (projectName) {
         isAdded : fs.existsSync('platforms/osx'),
         iconsPath : 'platforms/osx/' + projectName + '/Images.xcassets/AppIcon.appiconset/',
         icons : [
+            { name : 'icon-16x16.png',    size : 16  },
+            { name : 'icon-32x32.png',    size : 32  },
+            { name : 'icon-64x64.png',    size : 64  },
             { name : 'icon-128x128.png',  size : 128 },
-            { name : 'icon-16x16.png',    size : 16 },
             { name : 'icon-256x256.png',  size : 256 },
-            { name : 'icon-32x32.png',    size : 32 },
-            { name : 'icon-512x512.png',  size : 512  },
-            { name : 'icon-64x64.png',    size : 64 }
+            { name : 'icon-512x512.png',  size : 512 }
         ]
     });
     platforms.push({
@@ -54,13 +67,19 @@ var getPlatforms = function (projectName) {
         iconsPath : 'platforms/android/res/',
         isAdded : fs.existsSync('platforms/android'),
         icons : [
-            { name : 'drawable/icon.png',       size : 96 },
-            { name : 'mipmap-hdpi/icon.png',  size : 72 },
-            { name : 'mipmap-ldpi/icon.png',  size : 36 },
-            { name : 'mipmap-mdpi/icon.png',  size : 48 },
-            { name : 'mipmap-xhdpi/icon.png', size : 96 },
-            { name : 'mipmap-xxhdpi/icon.png', size : 144 },
-            { name : 'mipmap-xxxhdpi/icon.png', size : 192 }
+            { name : 'drawable/icon.png',         size : 96 },
+            { name : 'drawable-ldpi/icon.png',    size : 36 },
+            { name : 'drawable-mdpi/icon.png',    size : 48 },
+            { name : 'drawable-hdpi/icon.png',    size : 72 },
+            { name : 'drawable-xhdpi/icon.png',   size : 96 },
+            { name : 'drawable-xxhdpi/icon.png',  size : 144 },
+            { name : 'drawable-xxxhdpi/icon.png', size : 192 },
+            { name : 'mipmap-ldpi/icon.png',      size : 36 },
+            { name : 'mipmap-mdpi/icon.png',      size : 48 },
+            { name : 'mipmap-hdpi/icon.png',      size : 72 },
+            { name : 'mipmap-xhdpi/icon.png',     size : 96 },
+            { name : 'mipmap-xxhdpi/icon.png',    size : 144 },
+            { name : 'mipmap-xxxhdpi/icon.png',   size : 192 }
         ]
     });
     // TODO: add more platforms
@@ -130,15 +149,15 @@ var generateIcon = function (platform, icon) {
     var file = platform.iconsPath + icon.name;
 
     gm(settings.ICON_FILE)
-      .resize(icon.size, icon.size)
-      .write(file, function(err) {
-        if (err) {
-          deferred.reject(err);
-        } else {
-          deferred.resolve();
-          display.success(icon.name + ' created');
-        }
-      });
+        .resize(icon.size, icon.size)
+        .write(file, function(err) {
+            if (err) {
+                deferred.reject(err);
+            } else {
+                deferred.resolve();
+                display.success(icon.name + ' created');
+            }
+        });
     return deferred.promise;
 };
 
@@ -246,22 +265,25 @@ var configFileExists = function () {
 
 display.header('Checking Project & Icon');
 
-var run = function() {
-  return atLeastOnePlatformFound()
-    .then(validIconExists)
-    .then(configFileExists)
-    .then(getProjectName)
-    .then(getPlatforms)
-    .then(generateIcons)
-    .catch(function (err) {
-        if (err) {
-            console.log(err);
-        }
-    }).then(function () {
-        console.log('');
-    });
+var run = function(options) {
+    if (!_.isEmpty(options)) {
+        _.extendOwn(settings, options);
+    }
+    return atLeastOnePlatformFound()
+        .then(validIconExists)
+        .then(configFileExists)
+        .then(getProjectName)
+        .then(getPlatforms)
+        .then(generateIcons)
+        .catch(function (err) {
+            if (err) {
+                console.log(err);
+            }
+        }).then(function () {
+            console.log('');
+        });
 };
 
 module.exports = {
-  generate: run
+    generate: run
 };
