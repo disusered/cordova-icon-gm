@@ -28,10 +28,10 @@
   },
   "homepage": "https://github.com/disusered/cordova-icon-gm",
   "dependencies": {
-    "colors": "^0.6.2",
-    "gm": "^1.17.0",
-    "q": "^1.0.1",
-    "underscore": "^1.6.0",
-    "xml2js": "^0.4.3"
+    "colors": "^1.2.1",
+    "gm": "^1.23.1",
+    "q": "^1.5.1",
+    "underscore": "^1.8.3",
+    "xml2js": "^0.4.19"
   }
 }
